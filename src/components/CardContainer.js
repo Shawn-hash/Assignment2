@@ -5,16 +5,20 @@ import AddForm from './AddForm';
 const CardContainer = () => {
   const [items, setItems] = useState([]);
 
-  const addItem = (newItem) => {
+  const handleAddItem = (newItem) => {
       setItems((prevItems) => [...prevItems, newItem]);
+  };
+
+  const handleDeleteItem = (item) => {
+      setItems((prevItems) => prevItems.filter((prevItem) => prevItem !== item));
   };
 
   return (
     <div>
-      <AddForm addItem={addItem} />
+      <AddForm addItem={handleAddItem} />
       <div className="card-container">
         {items.map((item, index) => (
-          <Card key={index} item={item} />
+          <Card key={index} item={item} onDelete={handleDeleteItem}/>
         ))}
       </div>
     </div>
