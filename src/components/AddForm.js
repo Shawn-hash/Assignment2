@@ -25,8 +25,8 @@ const AddForm = ({addItem}) => {
   };
 
   return (
-    <form class="header" onSubmit={handleSubmit}>
-      <div class="field">
+    <form className="header" onSubmit={handleSubmit}>
+      <div className="field">
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -36,7 +36,7 @@ const AddForm = ({addItem}) => {
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div class="field">
+      <div className="field">
         <label htmlFor="description">Description:</label>
         <input
           type="text"
@@ -46,7 +46,7 @@ const AddForm = ({addItem}) => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div class="field">
+      <div className="field">
         <label htmlFor="price">Price:</label>
         <input
           type="text"
@@ -56,7 +56,7 @@ const AddForm = ({addItem}) => {
           onChange={(e) => setPrice(e.target.value)}
         />
       </div>
-      <div class="field">
+      <div className="field">
         <label htmlFor="image">Image URL:</label>
         <input
           type="text"
@@ -66,7 +66,7 @@ const AddForm = ({addItem}) => {
           onChange={(e) => setImage(e.target.value)}
         />
       </div>
-      <button class="addBtn" type="submit">Add Item</button>
+      <button className="addBtn" type="submit">Add Item</button>
     </form>
   );
 };

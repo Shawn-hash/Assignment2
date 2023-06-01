@@ -91,3 +91,22 @@ button:hover {
   font-size: 20px;
   cursor: pointer;
 }
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  width: 10px;
+  height: 10px;
+  font-size: 18px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.quantity-number {
+  margin: 10px;
+  font-size: 16px;
+}
