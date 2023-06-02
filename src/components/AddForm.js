@@ -15,12 +15,16 @@ const AddForm = ({addItem}) => {
       price,
       image,
     };
-    if (!name || !description || !price || !image) {
-      alert("Please fill in all fields.");
-    }
     // Pass the new item to the parent component
     addItem(newItem);
     // Clear the form inputs
+    setName('');
+    setDescription('');
+    setPrice('');
+    setImage('');
+  };
+
+  const handleClearForm = () => {
     setName('');
     setDescription('');
     setPrice('');
@@ -69,6 +73,7 @@ const AddForm = ({addItem}) => {
           onChange={(e) => setImage(e.target.value)}
         />
       </div>
+      <button className="addBtn" onClick={handleClearForm}>Clear Form</button>
       <button className="addBtn" type="submit">Add Item</button>
     </form>
   );
