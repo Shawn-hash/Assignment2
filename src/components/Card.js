@@ -46,7 +46,7 @@ const Card = ({ item, onDelete }) => {
           <span className="quantity-number">{quantity}</span>
           <button className="quantity-btn" onClick={handleIncrement}>+</button>
       </div>
-      <button onClick={handleCardClick}>Expand</button>
+      {!showPopup && <button onClick={handleCardClick}>Expand</button>}
       {showPopup && <Popup item={item} onClose={handleClosePopup} />}
     </div>
   );
