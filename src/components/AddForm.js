@@ -15,6 +15,9 @@ const AddForm = ({addItem}) => {
       price,
       image,
     };
+    if (!name || !description || !price || !image) {
+      alert("Please fill in all fields.");
+    }
     // Pass the new item to the parent component
     addItem(newItem);
     // Clear the form inputs

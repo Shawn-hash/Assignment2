@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import Popup from './Popup';
+import { useDispatch, useSelector } from 'react-redux';
+import reducer from '../reducers/quantityCount';
+import { decrementQuantity, incrementQuantity} from '../actions/changeQuantity';
+
 
 const Card = ({ item, onDelete }) => {
   let [showPopup, setShowPopup] = useState(false);
-  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+  const quantity = useSelector((state) => state.quantity);
 
   const handleCardClick = () => {
     setShowPopup(true);
@@ -13,22 +18,20 @@ const Card = ({ item, onDelete }) => {
     setShowPopup(false);
   };
 
+  const handleDelete = () => {
+    onDelete(item.name);
+  };
+
   if (!item || !item.name || !item.description || !item.price || !item.image) {
      return null;
   }
 
-  const handleDelete = () => {
-      onDelete(item);
-  };
-
   const handleDecrement = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
+    dispatch(decrementQuantity(quantity));
   };
 
   const handleIncrement = () => {
-    setQuantity(quantity + 1);
+    dispatch(incrementQuantity(quantity));
   };
 
   return (
