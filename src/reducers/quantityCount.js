@@ -1,29 +1,27 @@
-import { DECREMENT_QUANTITY, INCREMENT_QUANTITY, DELETE_ITEM } from '../actions/changeQuantity';
+import { DECREMENT_QUANTITY, INCREMENT_QUANTITY } from '../actions/changeQuantity';
 
 const initialState = {
-  quantity: 1,
+  quantities: {},
 };
 
 const quantityCountReducer = (state = initialState, action) => {
   switch (action.type) {
     case DECREMENT_QUANTITY:
-      if (state.quantity > 0) {
-        return {
-          ...state,
-          quantity: state.quantity - 1,
-        };
-      }
-      return state;
+      return {
+        ...state,
+        quantities: {
+          ...state.quantities,
+          [action.payload]: Math.max(0, (state.quantities[action.payload] || 0) - 1),
+        },
+      };
 
     case INCREMENT_QUANTITY:
       return {
         ...state,
-        quantity: state.quantity + 1,
-      };
-
-    case DELETE_ITEM:
-      return {
-        ...initialState,
+        quantities: {
+          ...state.quantities,
+          [action.payload]: (state.quantities[action.payload] || 0) + 1,
+        },
       };
 
     default:

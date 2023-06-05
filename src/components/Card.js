@@ -8,7 +8,7 @@ import { decrementQuantity, incrementQuantity} from '../actions/changeQuantity';
 const Card = ({ item, onDelete }) => {
   let [showPopup, setShowPopup] = useState(false);
   const dispatch = useDispatch();
-  const quantity = useSelector((state) => state.quantity);
+  const quantity = useSelector((state) => state.quantityCount.quantities[item.name] || 0);
 
   const handleCardClick = () => {
     setShowPopup(true);
@@ -27,11 +27,11 @@ const Card = ({ item, onDelete }) => {
   }
 
   const handleDecrement = () => {
-    dispatch(decrementQuantity(quantity));
+    dispatch(decrementQuantity(item.name));
   };
 
   const handleIncrement = () => {
-    dispatch(incrementQuantity(quantity));
+    dispatch(incrementQuantity(item.name));
   };
 
   return (

@@ -1,17 +1,16 @@
-export const DECREMENT_QUANTITY = 'DECREMENT_QUANTITY';
 export const INCREMENT_QUANTITY = 'INCREMENT_QUANTITY';
-export const DELETE_ITEM = 'DELETE_ITEM';
+export const DECREMENT_QUANTITY = 'DECREMENT_QUANTITY';
 
-export const incrementQuantity = (quantity) => {
+export const incrementQuantity = (itemName) => {
   return {
-      type: INCREMENT_QUANTITY,
-      payload: quantity,
-    };
+    type: INCREMENT_QUANTITY,
+    payload: itemName,
   };
+};
 
-  export const decrementQuantity = (quantity) => {
-    return {
-      type: DECREMENT_QUANTITY,
-      payload: quantity,
-    };
+export const decrementQuantity = (itemName) => {
+  return {
+    type: DECREMENT_QUANTITY,
+    payload: itemName,
   };
+};
